@@ -1,0 +1,1 @@
+Using the SPI1 Module on the STM32 board to read data from the ADXL345 accelerometer.
