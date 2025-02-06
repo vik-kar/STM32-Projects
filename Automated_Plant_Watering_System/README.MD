@@ -1,0 +1,1 @@
+An Automated Plant Watering System that detects low soil moisture and activates a 12V water pump
