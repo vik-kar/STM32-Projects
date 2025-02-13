@@ -1,0 +1,6 @@
+../Src/togglePin.c:7:6:pa3_init	4	static
+../Src/togglePin.c:16:6:pa3_on	4	static
+../Src/togglePin.c:21:6:pa3_off	4	static
+../Src/togglePin.c:26:6:pa6_init	4	static
+../Src/togglePin.c:33:6:pa6_on	4	static
+../Src/togglePin.c:37:6:pa6_off	4	static

@@ -8,6 +8,7 @@
 #define ADC1SWSTART		(1U << 30)
 #define ADC1EOC			(1U << 1)
 #define CR2ADON			(1U << 0)
+#define ADC_EOCEN		(1U << 5)
 
 
 void pb0_adc_init(){
@@ -24,6 +25,12 @@ void pb0_adc_init(){
 	/* Now, we enable clock access the ADC module */
 	RCC->APB2ENR |= ADC1EN;
 
+	/* Enable ADC end-of-conversion interrupt */
+	ADC1->CR1 |= ADC_EOCEN;
+
+	/* Enable the ADC Interrupt in NVIC */
+	NVIC_EnableIRQ(ADC_IRQn);
+
 	/* In SQR3, we assign sequence positions for our channels
 	 * PB0 corresponds to ADC1 Channel 8
 	 * We've created a symbolic name, now we can assign that to SQR3
@@ -35,7 +42,7 @@ void pb0_adc_init(){
 	/* We can just set this whole thing to 0 */
 	ADC1->SQR1 = 0x00;
 
-	/* Finally, we enable the ADC conversion through the control regsiter */
+	/* Finally, we enable the ADC conversion through the control register */
 	ADC1->CR2 |= CR2ADON;
 
 }
